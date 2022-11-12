@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface User {
+export interface User {
   id: number;
   name: string;
   age: number;
@@ -15,8 +15,8 @@ const listSlice = createSlice({
     addUser: (state, { payload }: PayloadAction<User>) => {
       state.push(payload);
     },
-    removeUser: (state, { payload }: PayloadAction<string>) => {
-      return state.filter(user => user.name !== payload);
+    removeUser: (state, { payload }: PayloadAction<number>) => {
+      return state.filter(user => user.id !== payload);
     },
   },
 });
